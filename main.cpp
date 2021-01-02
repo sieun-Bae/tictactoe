@@ -26,23 +26,27 @@ int main()
 	{
 		int row=-1;
 		int column=-1;
-		cout<<user1<<"\n";
-		cout<<"Enter row you would like to place \'x\': ";
-		cin>>row;
-		cout<<"Enter column you would like to place \'x\': ";
-		cin>>column;
+		do {
+			cout<<user1<<"\n";
+			cout<<"Enter row you would like to place \'x\': ";
+			cin>>row;
+			cout<<"Enter column you would like to place \'x\': ";
+			cin>>column;
+		} while(gameBoard.invalid(row, column));
 		gameBoard.setGameSpace(row, column, 'x');
 
 		printAll(gameBoard);
 		int result = fourInSpace(gameBoard);
 		if (result==1) {cout<<"Winner: "<<user1<<". Congrats!\n"; exit(1);}
 		else if (result==2) {cout<<"Winner: "<<user2<<". Congrats!\n"; exit(1);}
-	
-		cout<<user2<<"\n";
-		cout<<"Enter row you would like to place \'o\': ";
-		cin>>row;
-		cout<<"Enter column you would like to place \'o\': ";
-		cin>>column;
+		
+		do {
+			cout<<user2<<"\n";
+			cout<<"Enter row you would like to place \'o\': ";
+			cin>>row;
+			cout<<"Enter column you would like to place \'o\': ";
+			cin>>column;
+		} while(gameBoard.invalid(row, column));
 		gameBoard.setGameSpace(row, column, 'o');
 
 		printAll(gameBoard);

@@ -6,13 +6,13 @@ class GameBoard
 	char gameSpace[4][4];
 public:
 	GameBoard(){
-    for (int i=0;i<4;i++)
-    {
-        for (int j=0;j<4;j++)
-        {
-            gameSpace[i][j] = '-';
-        }
-    }
+	    for (int i=0;i<4;i++)
+	    {
+	        for (int j=0;j<4;j++)
+	        {
+	            gameSpace[i][j] = '-';
+	        }
+	    }
 	}
 	void setGameSpace(int row, int column, char user)
 	{
@@ -21,6 +21,15 @@ public:
 	char getGameSpace(int row, int column)
 	{
 		return gameSpace[row][column];
+	}
+	int invalid(int row, int column)
+	{
+		if (gameSpace[row][column] != '-')
+		{
+			cout<<"invalid input. already charged. try again.. \n";
+			return 1;
+		}
+		return 0;
 	}
 	int fourInRow()
 	{
